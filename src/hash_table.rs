@@ -1,6 +1,6 @@
 #[derive(Debug)]
 pub struct HashTable {
-	pub size: u8,
+	pub size: u64,
 	internal_collection: Vec<String>
 }
 
@@ -16,7 +16,7 @@ impl HashTable {
 	}
 
 	pub fn new() -> HashTable {
-		HashTable {size: 0, internal_collection: vec!(String::from(""); 10000)}
+		HashTable {size: 0, internal_collection: vec!(String::from(""); u16::max_value() as usize)}
 	}
 
 }
