@@ -29,6 +29,21 @@ fn get_from_hashtable(){
 }
 
 #[test]
+fn multi_add(){
+	let mut test_hash = hash_table::HashTable::new();
+
+	test_hash.add(&String::from("1"), &String::from("Bananas"));
+	test_hash.add(&String::from("2"), &String::from("Apples"));
+	test_hash.add(&String::from("3"), &String::from("Oranges"));
+	test_hash.add(&String::from("4"), &String::from("Grapes"));
+
+	assert_eq!(test_hash.get(&String::from("1")), "Bananas");
+	assert_eq!(test_hash.get(&String::from("2")), "Apples");
+	assert_eq!(test_hash.get(&String::from("3")), "Oranges");
+	assert_eq!(test_hash.get(&String::from("4")), "Grapes");
+}
+
+#[test]
 fn collision_testing() {
     let a = hash_table::hash_fun("test");
     let b = hash_table::hash_fun("rest");
